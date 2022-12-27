@@ -12,6 +12,7 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
 
   h1 {
     display: flex;
@@ -25,6 +26,23 @@ export const HeaderContent = styled.div`
 
     span {
       color: ${({theme}) => theme["green-500"]};
+    }
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    color: ${({theme}) => theme.white};
+    background-color: ${({theme}) => theme["green-500"]};
+    font-size: 0.875rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    line-height: 22px;
+    cursor: pointer;
+
+    &:hover {
+      transition: background 0.2s;
+      background-color: ${({theme}) => theme["green-300"]};
     }
   }
 `

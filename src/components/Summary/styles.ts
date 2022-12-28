@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ArrowCircleUp, ArrowCircleDown, CurrencyCircleDollar } from 'phosphor-react'
 
 export const SummaryContainer = styled.section`
   width: 100%;
@@ -9,4 +10,16 @@ export const SummaryContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+`
+
+export const EarningsIcon = styled<typeof ArrowCircleUp>(ArrowCircleUp)`
+  color: ${({theme}) => theme["green-300"]};
+`
+
+export const ExpenseIcon = styled<typeof ArrowCircleDown>(ArrowCircleDown)`
+  color: ${({theme}) => theme["red-300"]}
+`
+
+export const TotalIcon = styled<typeof CurrencyCircleDollar>(CurrencyCircleDollar)`
+  color: ${({theme}) => theme.white}
 `

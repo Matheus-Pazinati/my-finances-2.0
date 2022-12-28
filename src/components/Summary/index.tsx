@@ -1,12 +1,24 @@
 import { SummaryCard } from "./components/SummaryCard";
-import { SummaryContainer } from "./styles";
+import { EarningsIcon, ExpenseIcon, SummaryContainer, TotalIcon } from "./styles";
 
 export function Summary() {
   return (
     <SummaryContainer>
-      <SummaryCard />
-      <SummaryCard />
-      <SummaryCard />
+      <SummaryCard
+        title="Entradas"
+        Icon={EarningsIcon}
+        amount={17.500}
+      />
+      <SummaryCard
+        title="Saídas"
+        Icon={ExpenseIcon}
+        amount={17.500}
+      />
+      <SummaryCard
+        title="Total"
+        Icon={TotalIcon}
+        amount={17.500}
+      />
     </SummaryContainer>
   )
 }

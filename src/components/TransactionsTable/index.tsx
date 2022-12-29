@@ -1,9 +1,13 @@
 import { CalendarBlank, Tag } from "phosphor-react";
+
+import { SearchTransactionForm } from "../SearchTransactionForm";
+
 import { TableContainer, TableContent, TransactionAmount } from "./styles";
 
 export function TransactionsTable() {
   return (
     <TableContainer>
+      <SearchTransactionForm />
       <TableContent>
         <tbody>
           <tr>

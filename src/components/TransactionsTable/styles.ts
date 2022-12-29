@@ -9,6 +9,7 @@ export const TableContainer = styled.section`
 
 export const TableContent = styled.table`
   width: 100%;
+  margin-top: 0.75rem;
 
   tbody {
     display: flex;

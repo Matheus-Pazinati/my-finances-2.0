@@ -1,5 +1,5 @@
 import { CalendarBlank, Tag } from "phosphor-react";
-import { TableContainer, TableContent } from "./styles";
+import { TableContainer, TableContent, TransactionAmount } from "./styles";
 
 export function TransactionsTable() {
   return (
@@ -9,7 +9,12 @@ export function TransactionsTable() {
           <tr>
             <div className="TransactionAndValueContainer">
               <td>Desenvolvimento de site</td>
-              <td>R$ 12.000,00</td>
+              <td>
+                <TransactionAmount type="income">
+                  R$ 12.000,00
+                </TransactionAmount>
+
+              </td>
             </div>
             <div className="TypeAndDateContainer">
               <td>
@@ -25,7 +30,11 @@ export function TransactionsTable() {
           <tr>
             <div className="TransactionAndValueContainer">
               <td>Hamburguer</td>
-              <td>-R$ 40,00</td>
+              <td>
+                <TransactionAmount type="expense">
+                  - R$ 40,00
+                </TransactionAmount>
+              </td>
             </div>
             <div className="TypeAndDateContainer">
               <td>

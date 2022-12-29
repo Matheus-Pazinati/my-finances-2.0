@@ -25,7 +25,7 @@ export const TableContent = styled.table`
     display: flex;
     background-color: ${({theme}) => theme["gray-700"]};
     width: 100%;
-    padding: 1.25rem;
+    padding: 1rem 1.25rem;
   }
 
   .TransactionAndValueContainer {
@@ -48,4 +48,15 @@ export const TableContent = styled.table`
       gap: 4px;
     }
   }
+`
+
+interface TransactionAmountProps {
+  type: 'income' | 'expense'
+}
+
+export const TransactionAmount = styled.span<TransactionAmountProps>`
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: ${({theme, type}) => type === 'income' ? theme["green-300"] : theme["red-300"]};
 `

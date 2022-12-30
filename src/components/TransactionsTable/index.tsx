@@ -11,45 +11,44 @@ export function TransactionsTable() {
       <TableContent>
         <tbody>
           <tr>
-            <div className="TransactionAndValueContainer">
-              <td>Desenvolvimento de site</td>
-              <td>
+            <td className="TransactionAndValueContainer">
+              <p>Desenvolvimento de site</p>
+              <div>
                 <TransactionAmount type="income">
                   R$ 12.000,00
                 </TransactionAmount>
-
-              </td>
-            </div>
-            <div className="TypeAndDateContainer">
-              <td>
+              </div>
+            </td>
+            <td className="TypeAndDateContainer">
+              <div>
                 <Tag size={16} />
                 <span>Venda</span>
-              </td>
-              <td>
+              </div>
+              <div>
                 <CalendarBlank size={16} />
                 <span>29/12/2022</span>
-              </td>
-            </div>
+              </div>
+            </td>
           </tr>
           <tr>
-            <div className="TransactionAndValueContainer">
-              <td>Hamburguer</td>
-              <td>
+            <td className="TransactionAndValueContainer">
+              <p>Hamburguer</p>
+              <div>
                 <TransactionAmount type="expense">
                   - R$ 40,00
                 </TransactionAmount>
-              </td>
-            </div>
-            <div className="TypeAndDateContainer">
-              <td>
+              </div>
+            </td>
+            <td className="TypeAndDateContainer">
+              <div>
                 <Tag size={16} />
                 <span>Compra</span>
-              </td>
-              <td>
+              </div>
+              <div>
                 <CalendarBlank size={16} />
                 <span>28/12/2022</span>
-              </td>
-            </div>
+              </div>
+            </td>
           </tr>
         </tbody>
       </TableContent>

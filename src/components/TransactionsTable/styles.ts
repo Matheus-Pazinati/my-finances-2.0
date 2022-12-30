@@ -22,7 +22,7 @@ export const TableContent = styled.table`
     flex-direction: column;
   }
 
-  div {
+  td {
     display: flex;
     background-color: ${({theme}) => theme["gray-700"]};
     width: 100%;
@@ -34,6 +34,10 @@ export const TableContent = styled.table`
     gap: 4px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    display: flex;
+    background-color: ${({theme}) => theme["gray-700"]};
+    width: 100%;
+    padding: 1rem 1.25rem;
   }
 
   .TypeAndDateContainer {
@@ -42,8 +46,12 @@ export const TableContent = styled.table`
     color: ${({theme}) => theme["gray-500"]};
     align-items: center;
     justify-content: space-between;
+    display: flex;
+    background-color: ${({theme}) => theme["gray-700"]};
+    width: 100%;
+    padding: 1rem 1.25rem;
 
-    td {
+    div {
       display: flex;
       align-items: center;
       gap: 4px;

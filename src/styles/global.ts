@@ -21,4 +21,14 @@ export const GlobalStyle = createGlobalStyle`
   body, input, text-area, button {
     font: 400 1rem Roboto, sans-serif;
   }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
 `

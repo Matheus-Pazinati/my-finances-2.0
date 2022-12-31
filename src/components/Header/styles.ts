@@ -20,8 +20,16 @@ export const HeaderContent = styled.div`
     font-size: 1.25rem;
     gap: 0.5rem;
 
+    @media (min-width: 900px) {
+      font-size: 2rem;
+    }
+
     img {
       width: 1.5rem;
+
+      @media (min-width: 900px) {
+        width: 2.25rem;
+      }
     }
 
     span {
@@ -39,6 +47,11 @@ export const HeaderContent = styled.div`
     border-radius: 6px;
     line-height: 22px;
     cursor: pointer;
+
+    @media (min-width: 900px) {
+      font-size: 1rem;
+      padding: 0.75rem 1.25rem;
+    }
 
     &:hover {
       transition: background 0.2s;

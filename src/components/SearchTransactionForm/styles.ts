@@ -25,12 +25,22 @@ export const SearchContainer = styled.form`
     background-color: transparent;
     font-weight: bold;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 
     :hover {
       border-color: ${({theme}) => theme["green-500"]};
       color: ${({theme}) => theme.white};
       background-color: ${({theme}) => theme["green-500"]};
       transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    @media (min-width: 900px) {
+      &::after {
+        content: 'Buscar';
+      }
+      padding: 0.875rem 2rem;
     }
   }
 `

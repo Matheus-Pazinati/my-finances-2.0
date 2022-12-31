@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const SummaryCardContainer = styled.div`
+  width: 100%;
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: center;

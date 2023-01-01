@@ -24,6 +24,11 @@ export const TableContent = styled.table`
   tr {
     display: flex;
     flex-direction: column;
+
+    @media (min-width: 900px) {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
   }
 
   td {
@@ -31,6 +36,10 @@ export const TableContent = styled.table`
     background-color: ${({theme}) => theme["gray-700"]};
     width: 100%;
     padding: 1rem 1.25rem;
+
+    @media (min-width: 900px) {
+      padding: 1.25rem 2rem;
+    }
   }
 
   .TransactionAndValueContainer {
@@ -38,6 +47,17 @@ export const TableContent = styled.table`
     gap: 4px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+
+    @media (min-width: 900px) {
+      flex-direction: row;
+      align-items: center;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 6px;
+
+      p {
+        flex: 1;
+      }
+    }
   }
 
   .TypeAndDateContainer {
@@ -46,6 +66,12 @@ export const TableContent = styled.table`
     color: ${({theme}) => theme["gray-500"]};
     align-items: center;
     justify-content: space-between;
+
+    @media (min-width: 900px) {
+      justify-content: space-between;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 6px;
+    }
 
     div {
       display: flex;

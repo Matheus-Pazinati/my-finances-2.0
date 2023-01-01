@@ -21,6 +21,11 @@ export const DialogContent = styled(Dialog.Content)`
   padding: 1.5rem;
   border-radius: 6px;
 
+  @media (min-width: 900px) {
+    min-width: 32rem;
+    padding: 2.5rem 3rem;
+  }
+
   background-color: ${({theme}) => theme["gray-800"]};
 
   form {

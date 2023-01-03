@@ -1,55 +1,63 @@
 import { CalendarBlank, Tag } from "phosphor-react";
+import { useEffect, useState } from "react";
 
 import { SearchTransactionForm } from "../SearchTransactionForm";
 
 import { TableContainer, TableContent, TransactionAmount } from "./styles";
 
+interface TransactionProps {
+  id: number;
+  description: string;
+  type: 'income' | 'expense';
+  category: string;
+  price: number
+  createdAt: string;
+}
+
 export function TransactionsTable() {
+
+  const [transactions, setTransactions] = useState<TransactionProps[]>([])
+
+  async function getTransactionsData() {
+    const response = await fetch('http://localhost:3333/transactions')
+    const transactions = await response.json()
+
+    setTransactions(transactions)
+  }
+
+  useEffect(() => {
+    getTransactionsData()
+  }, [])
+
   return (
     <TableContainer>
       <SearchTransactionForm />
       <TableContent>
         <tbody>
-          <tr>
-            <td className="TransactionAndValueContainer">
-              <p>Desenvolvimento de site</p>
-              <div>
-                <TransactionAmount type="income">
-                  R$ 12.000,00
-                </TransactionAmount>
-              </div>
-            </td>
-            <td className="TypeAndDateContainer">
-              <div>
-                <Tag size={16} />
-                <span>Venda</span>
-              </div>
-              <div>
-                <CalendarBlank size={16} />
-                <span>29/12/2022</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td className="TransactionAndValueContainer">
-              <p>Hamburguer</p>
-              <div>
-                <TransactionAmount type="expense">
-                  - R$ 40,00
-                </TransactionAmount>
-              </div>
-            </td>
-            <td className="TypeAndDateContainer">
-              <div>
-                <Tag size={16} />
-                <span>Compra</span>
-              </div>
-              <div>
-                <CalendarBlank size={16} />
-                <span>28/12/2022</span>
-              </div>
-            </td>
-          </tr>
+          {transactions.map((transaction) => {
+            return (
+              <tr key={transaction.id}>
+                <td className="TransactionAndValueContainer">
+                  <p>{transaction.description}</p>
+                  <div>
+                    <TransactionAmount type={transaction.type}>
+                      R$ {transaction.price}
+                    </TransactionAmount>
+                  </div>
+                </td>
+                <td className="TypeAndDateContainer">
+                  <div>
+                    <Tag size={16} />
+                    <span>{transaction.category}</span>
+                  </div>
+                  <div>
+                    <CalendarBlank size={16} />
+                    <span>{transaction.createdAt}</span>
+                  </div>
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </TableContent>
     </TableContainer>

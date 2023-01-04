@@ -1,33 +1,16 @@
 import { CalendarBlank, Tag } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { TransactionsContext } from "../../context/TransactionsContext";
 
 import { SearchTransactionForm } from "../SearchTransactionForm";
 
 import { TableContainer, TableContent, TransactionAmount } from "./styles";
 
-interface TransactionProps {
-  id: number;
-  description: string;
-  type: 'income' | 'expense';
-  category: string;
-  price: number
-  createdAt: string;
-}
+
 
 export function TransactionsTable() {
 
-  const [transactions, setTransactions] = useState<TransactionProps[]>([])
-
-  async function getTransactionsData() {
-    const response = await fetch('http://localhost:3333/transactions')
-    const transactions = await response.json()
-
-    setTransactions(transactions)
-  }
-
-  useEffect(() => {
-    getTransactionsData()
-  }, [])
+  const { transactions } = useContext(TransactionsContext)
 
   return (
     <TableContainer>

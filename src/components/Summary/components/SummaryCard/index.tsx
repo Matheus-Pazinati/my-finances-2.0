@@ -10,7 +10,7 @@ interface SummaryCardProps {
 
 export function SummaryCard({ title, Icon, amount }: SummaryCardProps) {
   return (
-    <SummaryCardContainer>
+    <SummaryCardContainer type={title} isBalancePositive={amount >= 0}>
       <header>
         <span>{title}</span>
         <Icon size={32} />

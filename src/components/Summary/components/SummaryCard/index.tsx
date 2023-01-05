@@ -1,4 +1,5 @@
 import { ArrowCircleUp } from 'phosphor-react'
+import { formatMoney } from '../../../../utils/formatter';
 import { SummaryCardContainer } from './styles';
 
 interface SummaryCardProps {
@@ -14,7 +15,7 @@ export function SummaryCard({ title, Icon, amount }: SummaryCardProps) {
         <span>{title}</span>
         <Icon size={32} />
       </header>
-      <strong>R$ {amount}</strong>
+      <strong>{formatMoney.format(amount)}</strong>
     </SummaryCardContainer>
   )
 }

@@ -1,6 +1,7 @@
 import { CalendarBlank, Tag } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
 import { TransactionsContext } from "../../context/TransactionsContext";
+import { formatMoney } from "../../utils/formatter";
 
 import { SearchTransactionForm } from "../SearchTransactionForm";
 
@@ -24,7 +25,8 @@ export function TransactionsTable() {
                   <p>{transaction.description}</p>
                   <div>
                     <TransactionAmount type={transaction.type}>
-                      R$ {transaction.price}
+                      {transaction.type === "expense" && '- '}
+                      {formatMoney.format(transaction.price)}
                     </TransactionAmount>
                   </div>
                 </td>

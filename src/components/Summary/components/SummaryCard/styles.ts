@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface SummaryCardContainerProps {
   type: string
@@ -16,8 +16,6 @@ export const SummaryCardContainer = styled.div<SummaryCardContainerProps>`
     ${isBalancePositive ? theme["green-500"] : theme["red-500"]}
   ` : theme["gray-600"]};
   border-radius: 6px;
-
-
 
   header {
     display: flex;

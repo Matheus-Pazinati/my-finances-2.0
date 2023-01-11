@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const TableContainer = styled.section`
   width: 100%;
@@ -33,7 +33,7 @@ export const TableContent = styled.table`
 
   td {
     display: flex;
-    background-color: ${({theme}) => theme["gray-700"]};
+    background-color: ${({ theme }) => theme['gray-700']};
     width: 100%;
     padding: 1rem 1.25rem;
 
@@ -63,7 +63,7 @@ export const TableContent = styled.table`
   .TypeAndDateContainer {
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
-    color: ${({theme}) => theme["gray-500"]};
+    color: ${({ theme }) => theme['gray-500']};
     align-items: center;
     justify-content: space-between;
 
@@ -89,5 +89,6 @@ export const TransactionAmount = styled.span<TransactionAmountProps>`
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 2rem;
-  color: ${({theme, type}) => type === 'income' ? theme["green-300"] : theme["red-300"]};
+  color: ${({ theme, type }) =>
+    type === 'income' ? theme['green-300'] : theme['red-300']};
 `

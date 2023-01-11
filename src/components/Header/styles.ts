@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   width: 100%;
-  background-color: ${({theme}) => theme["gray-900"]};
+  background-color: ${({ theme }) => theme['gray-900']};
   padding: 2rem 1.5rem 6.5rem;
 `
 
@@ -33,14 +33,14 @@ export const HeaderContent = styled.div`
     }
 
     span {
-      color: ${({theme}) => theme["green-500"]};
+      color: ${({ theme }) => theme['green-500']};
     }
   }
 
   button {
     padding: 0.5rem 1rem;
-    color: ${({theme}) => theme.white};
-    background-color: ${({theme}) => theme["green-500"]};
+    color: ${({ theme }) => theme.white};
+    background-color: ${({ theme }) => theme['green-500']};
     font-size: 0.875rem;
     font-weight: 700;
     border: none;
@@ -55,7 +55,7 @@ export const HeaderContent = styled.div`
 
     &:hover {
       transition: background 0.2s;
-      background-color: ${({theme}) => theme["green-300"]};
+      background-color: ${({ theme }) => theme['green-300']};
     }
   }
 `

@@ -1,16 +1,13 @@
-import { CalendarBlank, Tag } from "phosphor-react";
-import { useContext } from "react";
-import { TransactionsContext } from "../../context/TransactionsContext";
-import { formatDate, formatMoney } from "../../utils/formatter";
+import { CalendarBlank, Tag } from 'phosphor-react'
+import { useContext } from 'react'
+import { TransactionsContext } from '../../context/TransactionsContext'
+import { formatDate, formatMoney } from '../../utils/formatter'
 
-import { SearchTransactionForm } from "../SearchTransactionForm";
+import { SearchTransactionForm } from '../SearchTransactionForm'
 
-import { TableContainer, TableContent, TransactionAmount } from "./styles";
-
-
+import { TableContainer, TableContent, TransactionAmount } from './styles'
 
 export function TransactionsTable() {
-
   const { transactions } = useContext(TransactionsContext)
 
   return (
@@ -25,7 +22,7 @@ export function TransactionsTable() {
                   <p>{transaction.description}</p>
                   <div>
                     <TransactionAmount type={transaction.type}>
-                      {transaction.type === "expense" && '- '}
+                      {transaction.type === 'expense' && '- '}
                       {formatMoney.format(transaction.price)}
                     </TransactionAmount>
                   </div>
@@ -37,7 +34,9 @@ export function TransactionsTable() {
                   </div>
                   <div>
                     <CalendarBlank size={16} />
-                    <span>{ formatDate.format(new Date(transaction.createdAt))}</span>
+                    <span>
+                      {formatDate.format(new Date(transaction.createdAt))}
+                    </span>
                   </div>
                 </td>
               </tr>

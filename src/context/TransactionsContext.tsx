@@ -1,20 +1,20 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-import { api } from "../lib/axios";
+import { createContext, ReactNode, useEffect, useState } from 'react'
+import { api } from '../lib/axios'
 
 interface TransactionProps {
-  id: number;
-  description: string;
-  type: 'income' | 'expense';
-  category: string;
+  id: number
+  description: string
+  type: 'income' | 'expense'
+  category: string
   price: number
-  createdAt: string;
+  createdAt: string
 }
 
 interface NewTransactionProps {
-  description: string;
-  type: 'income' | 'expense';
-  category: string;
-  price: number;
+  description: string
+  type: 'income' | 'expense'
+  category: string
+  price: number
 }
 
 interface TransactionsContextProps {
@@ -29,8 +29,7 @@ interface TransactionsProviderProps {
   children: ReactNode
 }
 
-export function TransactionsProvider({children}: TransactionsProviderProps) {
-
+export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<TransactionProps[]>([])
 
   async function getTransactionsData(query?: string) {
@@ -38,8 +37,8 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
       params: {
         _sort: 'createdAt',
         _order: 'desc',
-        q: query
-      }
+        q: query,
+      },
     })
 
     setTransactions(response.data)
@@ -52,7 +51,7 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
       description,
       price,
       type,
-      createdAt: new Date()
+      createdAt: new Date(),
     })
     setTransactions((state) => [response.data, ...state])
   }
@@ -62,7 +61,9 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
   }, [])
 
   return (
-    <TransactionsContext.Provider value={{transactions, getTransactionsData, createNewTransaction}}>
+    <TransactionsContext.Provider
+      value={{ transactions, getTransactionsData, createNewTransaction }}
+    >
       {children}
     </TransactionsContext.Provider>
   )

@@ -23,7 +23,30 @@
       "category": "Serviço",
       "price": 85,
       "createdAt": "2023-01-03T06:00:36.691Z"
+    },
+    {
+      "category": "Salário",
+      "description": "Salário",
+      "price": 2000,
+      "type": "income",
+      "createdAt": "2023-01-11T07:13:28.390Z",
+      "id": 4
+    },
+    {
+      "category": "Alimentação",
+      "description": "Café",
+      "price": 12,
+      "type": "expense",
+      "createdAt": "2023-01-11T07:16:10.767Z",
+      "id": 5
+    },
+    {
+      "category": "Venda",
+      "description": "Mesa",
+      "price": 200,
+      "type": "income",
+      "createdAt": "2023-01-11T07:17:12.721Z",
+      "id": 6
     }
-
   ]
 }

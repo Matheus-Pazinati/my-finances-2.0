@@ -5,6 +5,8 @@ import { DialogClose, DialogContent, DialogOverlay, TransactionType, Transaction
 import { useForm, Controller } from "react-hook-form";
 import z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useContext } from "react";
+import { TransactionsContext } from "../../context/TransactionsContext";
 
 const NewTransactionFormSchema = z.object({
   description: z.string().min(3, { message: "A descrição deve conter no mínimo 3 caracteres" }),
@@ -15,9 +17,19 @@ const NewTransactionFormSchema = z.object({
 
 type NewTransactionFormSchemaProps = z.infer<typeof NewTransactionFormSchema>
 
-export function NewTransactionModal() {
+interface NewTransactionModalProps {
+  onModalOpen: () => void
+}
 
-  const { register, control, handleSubmit, formState: { isSubmitting } } = useForm<NewTransactionFormSchemaProps>({
+export function NewTransactionModal({ onModalOpen }: NewTransactionModalProps) {
+
+  const { createNewTransaction } = useContext(TransactionsContext)
+
+  function closeModal() {
+    onModalOpen()
+  }
+
+  const { register, control, handleSubmit, reset, formState: { isSubmitting } } = useForm<NewTransactionFormSchemaProps>({
     resolver: zodResolver(NewTransactionFormSchema),
     defaultValues: {
       type: 'income'
@@ -25,7 +37,9 @@ export function NewTransactionModal() {
   })
 
   function handleCreateNewTransaction(data: NewTransactionFormSchemaProps) {
-    console.log(data)
+    createNewTransaction(data)
+    reset()
+    closeModal()
   }
 
   return (

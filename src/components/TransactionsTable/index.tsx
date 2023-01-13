@@ -1,5 +1,5 @@
 import { CalendarBlank, Tag } from 'phosphor-react'
-import { useContext } from 'react'
+import { useContextSelector } from 'use-context-selector'
 import { TransactionsContext } from '../../context/TransactionsContext'
 import { formatDate, formatMoney } from '../../utils/formatter'
 
@@ -8,7 +8,9 @@ import { SearchTransactionForm } from '../SearchTransactionForm'
 import { TableContainer, TableContent, TransactionAmount } from './styles'
 
 export function TransactionsTable() {
-  const { transactions } = useContext(TransactionsContext)
+  const transactions = useContextSelector(TransactionsContext, (context) => {
+    return context.transactions
+  })
 
   return (
     <TableContainer>

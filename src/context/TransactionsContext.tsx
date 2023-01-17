@@ -33,7 +33,7 @@ interface TransactionsProviderProps {
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<TransactionProps[]>([])
 
-  const getTransactionsData = useCallback(async (query?: string) => {
+  const getTransactionsData = useCallback(async function (query?: string) {
     const response = await api.get('transactions', {
       params: {
         _sort: 'createdAt',

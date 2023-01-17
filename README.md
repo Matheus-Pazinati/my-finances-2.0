@@ -28,9 +28,10 @@
   <li>Execute o comando npm run dev:server, que irá subir o arquivo JSON localmente (porta 3333), simulando uma API</li>
   <li>Execute o comando npm run dev, para subir a aplicação (front-end) no localhost</li>
 </ol>
+<br>
 <h2>📌 Funcionalidades a serem implementadas</h2>
 <ul>
-  <li>Incluir um botão em cada transação registrada, para permitir a exclusão da mesma</li>
+  <li>Incluir um botão em cada transação registrada, para excluir mesma</li>
   <li>Incluir um botão no campo de busca para limpar e cancelar a mesma</li>
 </ul>
 <br>

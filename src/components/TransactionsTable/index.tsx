@@ -12,6 +12,13 @@ export function TransactionsTable() {
     return context.transactions
   })
 
+  const deleteTransaction = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.deleteTransaction
+    },
+  )
+
   return (
     <TableContainer>
       <SearchTransactionForm />
@@ -40,7 +47,12 @@ export function TransactionsTable() {
                       {formatDate.format(new Date(transaction.createdAt))}
                     </span>
                   </div>
-                  <button className="DeleteTransactionButton">
+                  <button
+                    className="DeleteTransactionButton"
+                    onClick={() => {
+                      deleteTransaction(transaction.id)
+                    }}
+                  >
                     <Trash size={24} color={'#EE3333'} />
                   </button>
                 </td>

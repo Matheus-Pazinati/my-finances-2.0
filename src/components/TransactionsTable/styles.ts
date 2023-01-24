@@ -36,9 +36,25 @@ export const TableContent = styled.table`
     background-color: ${({ theme }) => theme['gray-700']};
     width: 100%;
     padding: 1rem 1.25rem;
+    position: relative;
 
     @media (min-width: 900px) {
       padding: 1.25rem 2rem;
+    }
+  }
+
+  .DeleteTransactionButton {
+    position: absolute;
+    right: 20px;
+    top: -70px;
+
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+
+    @media (min-width: 900px) {
+      top: 23.5px;
+      right: 2px;
     }
   }
 

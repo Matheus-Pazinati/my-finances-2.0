@@ -1,4 +1,4 @@
-import { CalendarBlank, Tag } from 'phosphor-react'
+import { CalendarBlank, Tag, Trash } from 'phosphor-react'
 import { useContextSelector } from 'use-context-selector'
 import { TransactionsContext } from '../../context/TransactionsContext'
 import { formatDate, formatMoney } from '../../utils/formatter'
@@ -40,6 +40,9 @@ export function TransactionsTable() {
                       {formatDate.format(new Date(transaction.createdAt))}
                     </span>
                   </div>
+                  <button className="DeleteTransactionButton">
+                    <Trash size={24} color={'#EE3333'} />
+                  </button>
                 </td>
               </tr>
             )

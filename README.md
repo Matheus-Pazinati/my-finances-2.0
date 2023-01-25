@@ -32,7 +32,7 @@
 <h2>📌 Funcionalidades a serem implementadas</h2>
 <ul>
   <li>Incluir um botão em cada transação registrada, para excluir mesma - Ok ✔️</li>
-  <li>Incluir um botão no campo de busca para limpar e cancelar a mesma</li>
+  <li>Incluir um botão no campo de busca para limpar e cancelar a mesma - Ok ✔️</li>
 </ul>
 <br>
 <h2>🔖 Layout</h2>

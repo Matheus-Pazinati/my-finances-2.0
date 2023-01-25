@@ -53,7 +53,12 @@ export function SearchTransactionForm() {
           {...register('query')}
         />
         {isSearching && (
-          <button className="CancelSearchButton" title="Cancelar busca">
+          <button
+            className="CancelSearchButton"
+            title="Cancelar busca"
+            onClick={handleCancelSearch}
+            disabled={isSubmitting}
+          >
             <X size={22} color={'#AB222E'} />
           </button>
         )}

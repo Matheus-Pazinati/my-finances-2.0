@@ -1,5 +1,5 @@
-import { MagnifyingGlass, XCircle } from 'phosphor-react'
-import { SearchContainer, SearchButton, CancelSearchButton } from './styles'
+import { MagnifyingGlass, X } from 'phosphor-react'
+import { SearchContainer, SearchButton } from './styles'
 
 import { useForm } from 'react-hook-form'
 import z from 'zod'
@@ -27,35 +27,41 @@ export function SearchTransactionForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { isSubmitting },
   } = useForm<SearchFormSchemaProps>({
     resolver: zodResolver(SearchFormSchema),
   })
 
-  async function handleNewSearch(data: SearchFormSchemaProps) {
-    await getTransactionsData(data.query)
+  function handleNewSearch(data: SearchFormSchemaProps) {
+    getTransactionsData(data.query)
+    setIsSearching(true)
+  }
+
+  async function handleCancelSearch() {
+    reset()
+    await getTransactionsData()
+    setIsSearching(false)
   }
 
   return (
     <SearchContainer onSubmit={handleSubmit(handleNewSearch)}>
-      <input
-        type="text"
-        placeholder="Buscar transações"
-        {...register('query')}
-      />
-      {isSearching ? (
-        <CancelSearchButton
-          type="submit"
-          disabled={isSubmitting}
-          themeColor="red"
-        >
-          <XCircle size={22} />
-        </CancelSearchButton>
-      ) : (
-        <SearchButton type="submit" disabled={isSubmitting} themeColor="green">
-          <MagnifyingGlass size={22} />
-        </SearchButton>
-      )}
+      <div className="InputContainer">
+        <input
+          type="text"
+          placeholder="Buscar transações"
+          {...register('query')}
+        />
+        {isSearching && (
+          <button className="CancelSearchButton" title="Cancelar busca">
+            <X size={22} color={'#AB222E'} />
+          </button>
+        )}
+      </div>
+
+      <SearchButton type="submit" disabled={isSubmitting}>
+        <MagnifyingGlass size={22} />
+      </SearchButton>
     </SearchContainer>
   )
 }

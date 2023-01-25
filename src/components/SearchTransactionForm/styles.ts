@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface SubmitButtonProps {
+  themeColor: 'red' | 'green'
+}
+
 export const SearchContainer = styled.form`
   width: 100%;
   display: flex;
@@ -15,37 +19,49 @@ export const SearchContainer = styled.form`
     border: none;
     line-height: 22.4px;
   }
+`
 
-  button {
-    padding: 0.875rem 1rem;
-    border-radius: 6px;
-    border: none;
-    border: 1px solid ${({ theme }) => theme['green-300']};
-    color: ${({ theme }) => theme['green-300']};
-    background-color: transparent;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+export const SubmitButton = styled.button<SubmitButtonProps>`
+  padding: 0.875rem 1rem;
+  border-radius: 6px;
+  border: none;
+  border: 1px solid ${({ theme, themeColor }) => theme[`${themeColor}-300`]};
+  color: ${({ theme, themeColor }) => theme[`${themeColor}-300`]};
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 
-    &:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    color: ${({ theme }) => theme.white};
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    border-color: ${({ theme, themeColor }) => theme[`${themeColor}-500`]};
+    background-color: ${({ theme, themeColor }) => theme[`${themeColor}-500`]};
+  }
+
+  @media (min-width: 900px) {
+    padding: 0.875rem 2rem;
+  }
+`
+export const SearchButton = styled(SubmitButton)`
+  @media (min-width: 900px) {
+    &::after {
+      content: 'Buscar';
     }
+  }
+`
 
-    &:not(:disabled):hover {
-      border-color: ${({ theme }) => theme['green-500']};
-      color: ${({ theme }) => theme.white};
-      background-color: ${({ theme }) => theme['green-500']};
-      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-    }
-
-    @media (min-width: 900px) {
-      &::after {
-        content: 'Buscar';
-      }
-      padding: 0.875rem 2rem;
+export const CancelSearchButton = styled(SubmitButton)`
+  @media (min-width: 900px) {
+    &::after {
+      content: 'Cancelar';
     }
   }
 `
